@@ -9,7 +9,41 @@
 * [AutoIt](#autoit)
 * [Bash / Shell](#bash--shell)
 * [Blockchain](#blockchain)
-* [C](#c)
+* [C](#c)import os
+import openai
+
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
+response = openai.ChatCompletion.create(
+  model="gpt-3.5-turbo",
+  messages=[
+    {
+      "role": "system",
+      "content": "const { Configuration, OpenAIApi } = require(\"openai\");\n\nconst configuration = new Configuration({\n  apiKey: process.env.OPENAI_API_KEY,\n});\nconst openai = new OpenAIApi(configuration);\n\nconst response = await openai.createChatCompletion({\n  model: \"gpt-3.5-turbo\",\n  messages: [\n    {\n      \"role\": \"system\",\n      \"content\": \"Creat an open source generator.\\n\"\n    },\n    {\n      \"role\": \"user\",\n      \"content\": \"Make a single page website that shows off different neat javascript features for drop-downs and things to display information. The website should be an HTML file with embedded javascript and CSS.\"\n    },\n    {\n      \"role\": \"assistant\",\n      \"content\": \"Open source development applications \"\n    },\n    {\n      \"role\": \"assistant\",\n      \"content\": \"Sure! Here's an example of a single page website that showcases different neat JavaScript features for drop-downs and displaying information. The website is an HTML file with embedded JavaScript and CSS.\\n\\n```html\\n<!DOCTYPE html>\\n<html>\\n<head>\\n  <title>JavaScript Features Showcase</title>\\n  <style>\\n    body {\\n      font-family: Arial, sans-serif;\\n      margin: 0;\\n      padding: 20px;\\n    }\\n\\n    h1 {\\n      text-align: center;\\n    }\\n\\n    .dropdown {\\n      position: relative;\\n      display: inline-block;\\n    }\\n\\n    .dropdown-content {\\n      display: none;\\n      position: absolute;\\n      background-color: #f9f9f9;\\n      min-width: 160px;\\n      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);\\n      z-index: 1;\\n    }\\n\\n    .dropdown:hover .dropdown-content {\\n      display: block;\\n    }\\n\\n    .dropdown-content a {\\n      color: black;\\n      padding: 12px 16px;\\n      text-decoration: none;\\n      display: block;\\n    }\\n\\n    .dropdown-content a:hover {\\n      background-color: #f1f1f1;\\n    }\\n  </style>\\n</head>\\n<body>\\n  <h1>JavaScript Features Showcase</h1>\\n\\n  <h2>Dropdown Example</h2>\\n  <div class=\\\"dropdown\\\">\\n    <button>Click me</button>\\n    <div class=\\\"dropdown-content\\\">\\n      <a href=\\\"#\\\">Option 1</a>\\n      <a href=\\\"#\\\">Option 2</a>\\n      <a href=\\\"#\\\">Option 3</a>\\n    </div>\\n  </div>\\n\\n  <h2>Displaying Information</h2>\\n  <button onclick=\\\"displayInfo()\\\">Show Information</button>\\n  <p id=\\\"info\\\"></p>\\n\\n  <script>\\n    function displayInfo() {\\n      var infoElement = document.getElementById(\\\"info\\\");\\n      infoElement.innerHTML = \\\"This is some information that is dynamically displayed using JavaScript.\\\";\\n    }\\n  </script>\\n</body>\\n</html>\\n```\\n\\nSave the above code in an HTML file (e.g., `index.html`) and open it in a web browser. You will see a single page website with a dropdown example and a button to display information dynamically using JavaScript.\\n\\nFeel free to modify and enhance this code to showcase more JavaScript features or add additional examples.\"\n    }\n  ],\n  temperature: 0,\n  max_tokens: 2048,\n  top_p: 1,\n  frequency_penalty: 0,\n  presence_penalty: 0,\n});"
+    },
+    {
+      "role": "user",
+      "content": "Make a single page website that shows off different neat javascript features for drop-downs and things to display information. The website should be an HTML file with embedded javascript and CSS.\n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"
+    },
+    {
+      "role": "assistant",
+      "content": "Sure! Here's an example of a single page website that showcases different neat JavaScript features for drop-downs and displaying information. The website is an HTML file with embedded JavaScript and CSS.\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n  <title>JavaScript Features Showcase</title>\n  <style>\n    body {\n      font-family: Arial, sans-serif;\n      margin: 0;\n      padding: 20px;\n    }\n\n    h1 {\n      text-align: center;\n    }\n\n    .dropdown {\n      position: relative;\n      display: inline-block;\n    }\n\n    .dropdown-content {\n      display: none;\n      position: absolute;\n      background-color: #f9f9f9;\n      min-width: 160px;\n      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);\n      z-index: 1;\n    }\n\n    .dropdown:hover .dropdown-content {\n      display: block;\n    }\n\n    .dropdown-content a {\n      color: black;\n      padding: 12px 16px;\n      text-decoration: none;\n      display: block;\n    }\n\n    .dropdown-content a:hover {\n      background-color: #f1f1f1;\n    }\n  </style>\n</head>\n<body>\n  <h1>JavaScript Features Showcase</h1>\n\n  <h2>Dropdown Example</h2>\n  <div class=\"dropdown\">\n    <button>Click me</button>\n    <div class=\"dropdown-content\">\n      <a href=\"#\">Option 1</a>\n      <a href=\"#\">Option 2</a>\n      <a href=\"#\">Option 3</a>\n    </div>\n  </div>\n\n  <h2>Displaying Information</h2>\n  <button onclick=\"displayInfo()\">Show Information</button>\n  <p id=\"info\"></p>\n\n  <script>\n    function displayInfo() {\n      var infoElement = document.getElementById(\"info\");\n      infoElement.innerHTML = \"This is some information that is dynamically displayed using JavaScript.\";\n    }\n  </script>\n</body>\n</html>\n```\n\nSave the above code in an HTML file (e.g., `index.html`) and open it in a web browser. You will see a single page website with a dropdown example and a button to display information dynamically using JavaScript.\n\nFeel free to modify and enhance this code to showcase more JavaScript features or add additional examples."
+    },
+    {
+      "role": "assistant",
+      "content": "Sure! Here's an example of a single page website that showcases different neat JavaScript features for drop-downs and displaying information. The website is an HTML file with embedded JavaScript and CSS.\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n  <title>JavaScript Features Showcase</title>\n  <style>\n    body {\n      font-family: Arial, sans-serif;\n      margin: 0;\n      padding: 20px;\n    }\n\n    h1 {\n      text-align: center;\n    }\n\n    .dropdown {\n      position: relative;\n      display: inline-block;\n    }\n\n    .dropdown-content {\n      display: none;\n      position: absolute;\n      background-color: #f9f9f9;\n      min-width: 160px;\n      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);\n      z-index: 1;\n    }\n\n    .dropdown:hover .dropdown-content {\n      display: block;\n    }\n\n    .dropdown-content a {\n      color: black;\n      padding: 12px 16px;\n      text-decoration"
+    },
+    {
+      "role": "assistant",
+      "content": "Sure! Here's an example of a single page website that showcases different neat JavaScript features for drop-downs and displaying information. The website is an HTML file with embedded JavaScript and CSS.\n\n```html\n<!DOCTYPE html>\n<html>\n<head>\n  <title>JavaScript Features Showcase</title>\n  <style>\n    body {\n      font-family: Arial, sans-serif;\n      margin: 0;\n      padding: 20px;\n    }\n\n    h1 {\n      text-align: center;\n    }\n\n    .dropdown {\n      position: relative;\n      display: inline-block;\n    }\n\n    .dropdown-content {\n      display: none;\n      position: absolute;\n      background-color: #f9f9f9;\n      min-width: 160px;\n      box-shadow: 0"
+    }
+  ],
+  temperature=0,
+  max_tokens=2048,
+  top_p=1,
+  frequency_penalty=0,
+  presence_penalty=0
+)
 * [C#](#csharp)
 * [C++](#cpp)
 * [Clojure](#clojure)
@@ -1305,7 +1339,7 @@
 ### Ruby
 
 * [Agile Development Using Ruby on Rails - Advanced](https://www.edx.org/course/agile-development-using-ruby-rails-uc-berkeleyx-cs169-2x#!)
-* [Agile Development Using Ruby on Rails - Basics](https://www.edx.org/course/agile-development-using-ruby-rails-uc-berkeleyx-cs169-1x#!)
+* [Agile DevDevelopmentelopment Using Ruby on Rails - Basics](https://www.edx.org/course/agile-development-using-ruby-rails-uc-berkeleyx-cs169-1x#!)
 * [An Introduction to Ruby Programming Language](https://www.researchgate.net/publication/322222154_An_Introduction_to_Ruby_Programming_Language) - Ali Tourani (HTML, PDF)
 * [Full Stack Ruby on Rails](https://www.theodinproject.com/paths/full-stack-ruby-on-rails) - The Odin Project
 * [Learn how to program: Ruby](https://www.learnhowtoprogram.com/ruby) - Epicodus Inc.
